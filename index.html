@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHEAT IOS VN - Hướng Dẫn Cài Đặt</title>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=yh0bgw9LFoGdrG6YUyQGb_ybS6rPqGyu1G9WcWkHY-al30xuwUCI_zoukY4f4rdO" charset="UTF-8"></script><style>
+    :root {
+      --purple: #7c3aed;
+      --purple-light: #a78bfa;
+      --blue: #60a5fa;
+      --green: #34d399;
+      --green-light: #6ee7b7;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #0f0c29;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(52, 211, 153, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 60% 10%, rgba(96, 165, 250, 0.15) 0%, transparent 50%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: clamp(24px, 5vw, 48px) clamp(14px, 4vw, 24px);
+      overflow-x: hidden;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.55); }
+      70%  { box-shadow: 0 0 0 14px rgba(124, 58, 237, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+    }
+
+    @keyframes badge-glow {
+      0%, 100% { opacity: 0.7; }
+      50%       { opacity: 1; }
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      margin-bottom: clamp(24px, 5vw, 44px);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(167, 139, 250, 0.12);
+      border: 1px solid rgba(167, 139, 250, 0.35);
+      color: var(--purple-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+      animation: badge-glow 3s ease-in-out infinite;
+    }
+
+    .header-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--purple-light);
+      border-radius: 50%;
+    }
+
+    header h1 {
+      font-size: clamp(1.75rem, 5vw, 2.6rem);
+      font-weight: 800;
+      background: linear-gradient(100deg, #c4b5fd, #60a5fa 50%, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+    }
+
+    header p {
+      color: #94a3b8;
+      margin-top: 10px;
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+    }
+
+    /* ── Main Card ── */
+    .main-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--radius-xl);
+      padding: clamp(20px, 4vw, 38px);
+      width: 100%;
+      max-width: 1040px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.07);
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    /* ── Top Section ── */
+    .top-section {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr 1.5fr;
+      gap: clamp(16px, 3vw, 28px);
+      align-items: stretch;
+    }
+
+    /* ── PEM Section ── */
+    .pem-section {
+      background: rgba(167, 139, 250, 0.07);
+      border: 1px solid rgba(167, 139, 250, 0.22);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 36px) clamp(16px, 3vw, 24px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      will-change: transform;
+    }
+
+    .pem-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.22);
+    }
+
+    .pem-icon {
+      width: clamp(64px, 12vw, 80px);
+      height: clamp(64px, 12vw, 80px);
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 28px rgba(124, 58, 237, 0.45);
+      animation: pulse-ring 2.8s ease-in-out infinite;
+    }
+
+    .pem-icon svg {
+      width: clamp(30px, 6vw, 40px);
+      height: clamp(30px, 6vw, 40px);
+      fill: #fff;
+    }
+
+    .pem-section h2 {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #e9d5ff;
+    }
+
+    .pem-section p {
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      color: #94a3b8;
+      margin-bottom: 22px;
+      line-height: 1.65;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #fff;
+      text-decoration: none;
+      padding: clamp(12px, 2.5vw, 14px) clamp(20px, 4vw, 28px);
+      border-radius: var(--radius-md);
+      font-size: clamp(0.9rem, 2.2vw, 1rem);
+      font-weight: 700;
+      transition: all var(--transition);
+      box-shadow: 0 6px 22px rgba(124, 58, 237, 0.42);
+      border: none;
+      cursor: pointer;
+      min-height: 48px;
+      width: 100%;
+      max-width: 220px;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-download:hover {
+      background: linear-gradient(135deg, #6d28d9, #4338ca);
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.62);
+    }
+
+    .btn-download:active {
+      transform: scale(0.97);
+    }
+
+    .btn-download svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+      flex-shrink: 0;
+    }
+
+    /* ── Video Section ── */
+    .video-section {
+      background: rgba(96, 165, 250, 0.05);
+      border: 1px solid rgba(96, 165, 250, 0.18);
+      border-radius: var(--radius-lg);
+      padding: clamp(18px, 3vw, 26px);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow var(--transition);
+    }
+
+    .video-section:hover {
+      box-shadow: 0 12px 40px rgba(96, 165, 250, 0.1);
+    }
+
+    .video-section h2 {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      font-weight: 700;
+      color: #bfdbfe;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .video-section h2 svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55);
+      flex: 1;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      color: #a5b4fc;
+      font-size: 0.9rem;
+      gap: 14px;
+    }
+
+    .video-placeholder svg {
+      width: 52px;
+      height: 52px;
+      fill: #6366f1;
+      opacity: 0.65;
+    }
+
+    /* ── WiFi Video Note ── */
+    .wifi-video-section h2 {
+      color: #d1fae5;
+    }
+
+    .wifi-video-section h2 svg {
+      fill: var(--green) !important;
+    }
+
+    .wifi-video-section {
+      border-color: rgba(52, 211, 153, 0.2) !important;
+      background: rgba(52, 211, 153, 0.04) !important;
+    }
+
+    .wifi-video-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: var(--radius-md);
+      padding: 11px 14px;
+      font-size: 0.83rem;
+      color: #6ee7b7;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      margin: clamp(22px, 4vw, 32px) 0;
+    }
+
+    /* ── Network Section ── */
+    .network-section h2 {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      font-weight: 700;
+      color: #d1fae5;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .network-section h2 svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--green);
+      flex-shrink: 0;
+    }
+
+    .network-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: clamp(12px, 2.5vw, 20px);
+    }
+
+    .network-item {
+      background: rgba(52, 211, 153, 0.06);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      border-radius: var(--radius-lg);
+      padding: clamp(16px, 3vw, 22px) clamp(16px, 3vw, 24px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      min-height: 76px;
+    }
+
+    .network-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(52, 211, 153, 0.16);
+      border-color: rgba(52, 211, 153, 0.38);
+    }
+
+    .network-item-left {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .network-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--green-light);
+      font-weight: 600;
+    }
+
+    .network-value {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-weight: 800;
+      color: #fff;
+      font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ── Copy Button ── */
+    .btn-copy {
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      color: var(--green-light);
+      border-radius: var(--radius-sm);
+      width: 46px;
+      height: 46px;
+      min-width: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      flex-shrink: 0;
+    }
+
+    .btn-copy:hover {
+      background: rgba(52, 211, 153, 0.28);
+      border-color: var(--green);
+      color: #fff;
+      transform: scale(1.08);
+    }
+
+    .btn-copy:active {
+      transform: scale(0.93);
+    }
+
+    .btn-copy svg {
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+
+    .btn-copy.copied {
+      background: rgba(52, 211, 153, 0.38);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: clamp(20px, 5vw, 34px);
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      background: linear-gradient(135deg, #34d399, #10b981);
+      color: #022c22;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      box-shadow: 0 8px 28px rgba(52, 211, 153, 0.42);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+      z-index: 9999;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── Potatso Section ── */
+    @keyframes pulse-ring-blue {
+      0%   { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.55); }
+      70%  { box-shadow: 0 0 0 14px rgba(14, 165, 233, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+    }
+
+    .potatso-section {
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-lg);
+      padding: clamp(12px, 3vw, 20px) clamp(4px, 2vw, 12px);
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 4vw, 28px);
+      flex-wrap: wrap;
+      transition: transform var(--transition);
+      will-change: transform;
+    }
+
+    .potatso-section:hover {
+      transform: translateY(-3px);
+    }
+
+    .potatso-icon {
+      width: clamp(56px, 12vw, 72px);
+      height: clamp(56px, 12vw, 72px);
+      min-width: clamp(56px, 12vw, 72px);
+      border-radius: 18px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.35);
+    }
+
+    .potatso-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .potatso-info {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .potatso-info h2 {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 700;
+      color: #bae6fd;
+      margin-bottom: 6px;
+    }
+
+    .potatso-info p {
+      font-size: clamp(0.78rem, 2vw, 0.88rem);
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .btn-appstore {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: #fff;
+      text-decoration: none;
+      padding: clamp(11px, 2.5vw, 13px) clamp(18px, 4vw, 26px);
+      border-radius: var(--radius-md);
+      font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+      font-weight: 700;
+      transition: all var(--transition);
+      box-shadow: 0 6px 22px rgba(14, 165, 233, 0.4);
+      white-space: nowrap;
+      min-height: 48px;
+      flex-shrink: 0;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-appstore:hover {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(14, 165, 233, 0.55);
+    }
+
+    .btn-appstore:active {
+      transform: scale(0.97);
+    }
+
+    .btn-appstore svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      .potatso-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn-appstore {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: clamp(28px, 5vw, 44px);
+      text-align: center;
+      color: #374151;
+      font-size: 0.8rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 740px) {
+      .top-section {
+        grid-template-columns: 1fr 1fr;
+      }
+      .top-section .pem-section {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .top-section {
+        grid-template-columns: 1fr;
+      }
+
+      .pem-section {
+        padding: 28px 20px;
+      }
+
+      .btn-download {
+        max-width: 100%;
+      }
+    }
+
+    /* ── Responsive: Mobile ── */
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 12px 32px;
+      }
+
+      .main-card {
+        border-radius: 18px;
+        padding: 18px 16px;
+      }
+
+      .top-section {
+        gap: 14px;
+      }
+
+      .pem-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        margin-bottom: 14px;
+      }
+
+      .network-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .network-value {
+        font-size: 1.05rem;
+      }
+
+      .btn-copy {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+      }
+
+      .video-section h2,
+      .network-section h2,
+      .pem-section h2 {
+        font-size: 1rem;
+      }
+    }
+
+    /* ── Modal / Popup ── */
+    @keyframes modalIn {
+      from { opacity: 0; transform: translate(-50%, -48%) scale(0.88); }
+      to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 10000;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.hidden {
+      display: none;
+    }
+
+    .modal-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10001;
+      background: linear-gradient(160deg, #1a163a, #211d45);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 22px;
+      padding: clamp(24px, 5vw, 36px);
+      width: min(92vw, 440px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05) inset;
+      animation: modalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .modal-box.hidden {
+      display: none;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #9ca3af;
+      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+    }
+
+    .modal-box h2 {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-weight: 800;
+      color: #e9d5ff;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .modal-steps {
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .modal-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    .modal-steps li .step-num {
+      background: rgba(124,58,237,0.3);
+      border: 1px solid rgba(167,139,250,0.4);
+      color: #c4b5fd;
+      border-radius: 6px;
+      min-width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .modal-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 18px 0 16px;
+    }
+
+    .modal-contact-label {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .modal-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-tele {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #229ED9, #1a85bb);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(34,158,217,0.38);
+    }
+
+    .btn-tele:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(34,158,217,0.55);
+    }
+
+    .btn-zalo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #0068FF, #0052cc);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(0,104,255,0.38);
+    }
+
+    .btn-zalo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,104,255,0.55);
+    }
+
+    .btn-tele svg, .btn-zalo svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 360px) {
+      .modal-buttons { grid-template-columns: 1fr; }
+    }
+
+    /* ── Proxy Tabs ── */
+    .proxy-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .proxy-tab {
+      flex: 1;
+      padding: 11px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: #94a3b8;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .proxy-tab:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    .proxy-tab.active-vip1 {
+      background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(79,70,229,0.3));
+      border-color: rgba(167,139,250,0.5);
+      color: #e9d5ff;
+      box-shadow: 0 4px 18px rgba(124,58,237,0.25);
+    }
+
+    .proxy-tab.active-vip2 {
+      background: linear-gradient(135deg, rgba(52,211,153,0.25), rgba(16,185,129,0.2));
+      border-color: rgba(52,211,153,0.45);
+      color: #d1fae5;
+      box-shadow: 0 4px 18px rgba(52,211,153,0.2);
+    }
+
+    .proxy-tab .tab-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .proxy-tab.active-vip1 .tab-dot { background: #a78bfa; }
+    .proxy-tab.active-vip2 .tab-dot { background: #34d399; }
+    .proxy-tab:not(.active-vip1):not(.active-vip2) .tab-dot { background: #4b5563; }
+
+    .proxy-panel { display: none; }
+    .proxy-panel.active { display: block; }
+
+    /* ── Choose Proxy Modal ── */
+    .choose-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10001;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .choose-overlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .choose-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -54%) scale(0.9);
+      z-index: 10002;
+      background: linear-gradient(160deg, #1a163a, #211d45);
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      border-radius: 24px;
+      padding: clamp(28px, 5vw, 40px);
+      width: min(92vw, 480px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05) inset;
+      text-align: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s ease;
+    }
+    .choose-modal.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .choose-modal-title {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-weight: 800;
+      color: #e9d5ff;
+      margin-bottom: 6px;
+    }
+
+    .choose-modal-sub {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 28px;
+    }
+
+    .choose-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .choose-card {
+      border-radius: 18px;
+      padding: 22px 16px 20px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .choose-card-vip1 {
+      background: linear-gradient(145deg, rgba(124,58,237,0.25), rgba(79,70,229,0.2));
+      border-color: rgba(167,139,250,0.35);
+    }
+
+    .choose-card-vip1:hover {
+      transform: translateY(-5px) scale(1.03);
+      border-color: rgba(167,139,250,0.8);
+      box-shadow: 0 16px 40px rgba(124,58,237,0.4);
+    }
+
+    .choose-card-vip2 {
+      background: linear-gradient(145deg, rgba(52,211,153,0.18), rgba(16,185,129,0.14));
+      border-color: rgba(52,211,153,0.35);
+    }
+
+    .choose-card-vip2:hover {
+      transform: translateY(-5px) scale(1.03);
+      border-color: rgba(52,211,153,0.8);
+      box-shadow: 0 16px 40px rgba(52,211,153,0.35);
+    }
+
+    .choose-card-emoji {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .choose-card-name {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .choose-card-vip1 .choose-card-name { color: #e9d5ff; }
+    .choose-card-vip2 .choose-card-name { color: #d1fae5; }
+
+    .choose-card-desc {
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .choose-card-vip1 .choose-card-desc { color: #c4b5fd; }
+    .choose-card-vip2 .choose-card-desc { color: #6ee7b7; }
+
+    .choose-card-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .choose-card-vip1 .choose-card-badge {
+      background: rgba(167,139,250,0.25);
+      color: #c4b5fd;
+      border: 1px solid rgba(167,139,250,0.4);
+    }
+
+    .choose-card-vip2 .choose-card-badge {
+      background: rgba(52,211,153,0.2);
+      color: #34d399;
+      border: 1px solid rgba(52,211,153,0.4);
+    }
+
+    @media (max-width: 400px) {
+      .choose-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+
+  <!-- Choose Proxy Modal -->
+  <div class="choose-overlay" id="chooseOverlay"></div>
+  <div class="choose-modal" id="chooseModal">
+    <div class="choose-modal-title">🎯 Bạn muốn dùng Proxy nào?</div>
+    <div class="choose-modal-sub">Chọn loại phù hợp với nhu cầu của bạn</div>
+    <div class="choose-cards">
+      <div class="choose-card choose-card-vip1" onclick="chooseProxy('vip1')">
+        <span class="choose-card-badge">VIP 1</span>
+        <span class="choose-card-emoji">📡</span>
+        <div class="choose-card-name">Proxy VIP 1</div>
+        <div class="choose-card-desc">Antena + Drag<br/>Port 2008</div>
+      </div>
+      <div class="choose-card choose-card-vip2" onclick="chooseProxy('vip2')">
+        <span class="choose-card-badge">VIP 2</span>
+        <span class="choose-card-emoji">💎</span>
+        <div class="choose-card-name">Proxy VIP 2</div>
+        <div class="choose-card-desc">Aim VIP<br/>No Antena &bull; Port 2009</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModal()" title="Đóng">&#x2715;</button>
+    <h2>Hướng dẫn sử dụng</h2>
+    <ul class="modal-steps">
+      <li>
+        <span class="step-num">1</span>
+        <span>Tải app <strong>Potatso</strong> từ App Store trên iPhone.</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span>Tải và cài đặt file <strong>CheatiOSVip.pem</strong>, vào <em>Cài đặt &rarr; Đã tải về hồ sơ</em> để cài xong tin tưởng chứng chỉ.</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span>Mở Potatso, thêm proxy mới với <strong>IP</strong> và <strong>Port 2008</strong> ở bên dưới.</span>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <span>Bật kết nối và tận hưởng! Cần hỗ trợ hãy liên hệ admin.</span>
+      </li>
+    </ul>
+    <hr class="modal-divider" />
+    <div class="modal-contact-label">Liên hệ Admin</div>
+    <div class="modal-buttons">
+      <a class="btn-tele" href="https://t.me/obi74z" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+        Telegram
+      </a>
+      <a class="btn-zalo" href="https://zalo.me/0374583885" target="_blank">
+        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 3C12.85 3 3 12.85 3 25s9.85 22 22 22 22-9.85 22-22S37.15 3 25 3zm-6.5 12h13l-8.9 13H31.5v3h-13l8.9-13H18.5v-3z"/>
+        </svg>
+        Zalo
+      </a>
+    </div>
+  </div>
+
+
+  <header>
+    <h1>CHEAT IOS VN</h1>
+    <p>Hướng dẫn cài đặt chứng chỉ &amp; kết nối Proxy</p>
+  </header>
+
+  <div class="main-card">
+
+    <!-- Top: PEM + Video -->
+    <div class="top-section">
+
+      <!-- PEM Download -->
+      <div class="pem-section">
+        <div class="pem-icon">
+          <!-- Certificate icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM12 18a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+          </svg>
+        </div>
+        <h2>Chứng Chỉ PEM</h2>
+        <p>Tải và cài đặt chứng chỉ SSL để thiết bị iOS tin tưởng kết nối proxy.</p>
+        <a class="btn-download" href="https://api.cheatiosvip.vn/cheatiosvip.pem" target="_blank" download>
+          <!-- Download icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4v-2h14v2H5z"/>
+          </svg>
+          Tải File PEM
+        </a>
+      </div>
+
+      <!-- Video Tutorial -->
+      <div class="video-section">
+        <h2>
+          <!-- Play icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5v14l11-7L8 5z"/>
+          </svg>
+          Hướng dẫn cài qua app Potatso
+        </h2>
+        <div class="video-wrapper">
+          <video
+            src="https://api.cheatiosvip.vn/IMG_5781.mp3"
+            controls
+            playsinline
+            preload="metadata"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;background:#000;"
+          >
+            Trình duyệt của bạn không hỗ trợ phát video.
+          </video>
+        </div>
+      </div>
+
+      <!-- Video hướng dẫn cài qua WiFi -->
+      <div class="video-section wifi-video-section">
+        <h2>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 0 0-6 0zm-4-4 2 2a7.074 7.074 0 0 1 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+          </svg>
+          Hướng dẫn cài qua WiFi
+        </h2>
+        <div class="wifi-video-note">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="flex-shrink:0;margin-top:2px;">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          </svg>
+          Nếu App Store không cho tải Potatso, hãy xem video cài thủ công qua WiFi.
+        </div>
+        <div class="video-wrapper">
+          <video
+            src="https://api.cheatiosvip.vn/IMG_5793.MP4"
+            controls
+            playsinline
+            preload="metadata"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;background:#000;"
+            id="wifiVideo"
+          >
+            Trình duyệt của bạn không hỗ trợ phát video.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Potatso App Download -->
+    <div class="potatso-section" style="margin-top: clamp(14px,3vw,24px);">
+      <div class="potatso-icon">
+        <img src="https://i.imgur.com/QTGYdPC.png" alt="Potatso" />
+      </div>
+      <div class="potatso-info">
+        <h2>Tải App Potatso</h2>
+        <p>Ứng dụng proxy iOS cần thiết để kết nối. Tải ngay từ App Store để bắt đầu sử dụng.</p>
+      </div>
+      <a class="btn-appstore" href="https://apps.apple.com/vn/app/potatso/id1239860606?l=vi" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 12h-4V8h-2v4H7l5 5 5-5zm-9 6v2h10v-2H8z"/>
+        </svg>
+        Tải Potatso
+      </a>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Bottom: Network Info -->
+    <div class="network-section">
+      <h2>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 0 0-6 0zm-4-4 2 2a7.074 7.074 0 0 1 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+        </svg>
+        Thông Tin Kết Nối Proxy
+      </h2>
+
+      <!-- Tabs -->
+      <div class="proxy-tabs">
+        <button class="proxy-tab active-vip1" id="tab-vip1" onclick="switchTab('vip1')">
+          <span class="tab-dot"></span>
+          ⭐ Proxy VIP 1
+        </button>
+        <button class="proxy-tab" id="tab-vip2" onclick="switchTab('vip2')">
+          <span class="tab-dot"></span>
+          💎 Proxy VIP 2
+        </button>
+      </div>
+
+      <!-- Panel Vip1 -->
+      <div class="proxy-panel active" id="panel-vip1">
+        <div class="network-grid">
+          <div class="network-item">
+            <div class="network-item-left">
+              <span class="network-label">&#x1F310; IP Server</span>
+              <span class="network-value">103.75.183.142</span>
+            </div>
+            <button class="btn-copy" onclick="copyText('103.75.183.142', this, 'Đã sao chép IP!')" title="Sao chép IP">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="network-item">
+            <div class="network-item-left">
+              <span class="network-label">&#x1F50C; Port</span>
+              <span class="network-value">2008</span>
+            </div>
+            <button class="btn-copy" onclick="copyText('2008', this, 'Đã sao chép Port!')" title="Sao chép Port">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel Vip2 -->
+      <div class="proxy-panel" id="panel-vip2">
+        <div class="network-grid">
+          <div class="network-item">
+            <div class="network-item-left">
+              <span class="network-label">&#x1F310; IP Server</span>
+              <span class="network-value">103.75.183.142</span>
+            </div>
+            <button class="btn-copy" onclick="copyText('103.75.183.142', this, 'Đã sao chép IP!')" title="Sao chép IP">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="network-item">
+            <div class="network-item-left">
+              <span class="network-label">&#x1F50C; Port</span>
+              <span class="network-value">2009</span>
+            </div>
+            <button class="btn-copy" onclick="copyText('2009', this, 'Đã sao chép Port!')" title="Sao chép Port">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 CHEAT IOS VN &mdash; All rights reserved
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function copyText(text, btn, message) {
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copied');
+        showToast(message);
+        setTimeout(() => btn.classList.remove('copied'), 2000);
+      }).catch(() => {
+        // Fallback for older browsers
+        const el = document.createElement('textarea');
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        btn.classList.add('copied');
+        showToast(message);
+        setTimeout(() => btn.classList.remove('copied'), 2000);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = '✓ ' + msg;
+      toast.classList.add('show');
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function closeModal() {
+      document.getElementById('modalBox').style.display = 'none';
+      document.getElementById('modalOverlay').style.display = 'none';
+      // Hiện popup chọn proxy với animation
+      document.getElementById('chooseOverlay').classList.add('show');
+      document.getElementById('chooseModal').classList.add('show');
+    }
+
+    function chooseProxy(vip) {
+      // Ẩn popup chọn
+      document.getElementById('chooseOverlay').classList.remove('show');
+      document.getElementById('chooseModal').classList.remove('show');
+
+      var tab1   = document.getElementById('tab-vip1');
+      var tab2   = document.getElementById('tab-vip2');
+      var panel1 = document.getElementById('panel-vip1');
+      var panel2 = document.getElementById('panel-vip2');
+
+      if (vip === 'vip1') {
+        tab1.style.display = '';
+        tab2.style.display = 'none';
+        tab1.className = 'proxy-tab active-vip1';
+        panel1.classList.add('active');
+        panel2.classList.remove('active');
+      } else {
+        tab1.style.display = 'none';
+        tab2.style.display = '';
+        tab2.className = 'proxy-tab active-vip2';
+        panel2.classList.add('active');
+        panel1.classList.remove('active');
+      }
+
+      setTimeout(function() {
+        document.querySelector('.network-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+
+    // Không cho phép đóng choose modal khi click overlay
+
+    // Đóng hướng dẫn khi click overlay
+    document.getElementById('modalOverlay').addEventListener('click', closeModal);
+  </script>
+
+</body>
+</html>
